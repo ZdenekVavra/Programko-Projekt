@@ -1,19 +1,21 @@
-// Pole pro mix různých objektů
-const entities: GameEntity[] = [];
+// Pole pro mix entit
+const entities: any[] = [];
 
-// Oživení dat – vytvoření instancí tříd
+// Oživení hříchů
 sinsData.forEach(s => {
-    entities.push(new Sin(s.id, s.name, s.baseProduction, s.description));
+    entities.push(createSin(s.id, s.name, s.baseProduction));
 });
 
+// Oživení hrdinů
 heroesData.forEach(h => {
-    entities.push(new Hero(h.id, h.name, h.baseProduction, h.rarity));
+    entities.push(createHero(h.id, h.name, h.baseProduction));
 });
 
 // Test v konzoli
-console.log("=== TEST TŘÍD – POLYMORFISMUS ===");
+console.log("=== TEST FUNKCÍ – POLYMORFISMUS ===");
 
 entities.forEach(e => {
-    e.levelUp(); // zvýšíme level
-    console.log(`${e.getInfo()} → produkce: ${e.calculateProduction()}`);
+    levelUp(e);
+    const prod = calculateProduction(e);
+    console.log(`${e.name} (lvl ${e.level}) → produkce: ${prod}`);
 });
