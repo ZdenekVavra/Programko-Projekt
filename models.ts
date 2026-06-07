@@ -1,39 +1,39 @@
-// Vytvoření hříchu
-function createSin(id: number, name: string, baseProduction: number) {
-    return {
-        id,
-        name,
-        level: 1,
-        baseProduction,
-        type: "sin" as const
-    };
-}
+// Základní třída pro všechny upgrady
+class Upgrade {
+    name: string;
+    level: number;
+    base: number;
+    cost: number;
 
-// Vytvoření hrdiny
-function createHero(id: number, name: string, baseProduction: number) {
-    return {
-        id,
-        name,
-        level: 1,
-        baseProduction,
-        type: "hero" as const
-    };
-}
-
-// Zvýšení levelu
-function levelUp(entity: { level: number }) {
-    entity.level++;
-}
-
-// Výpočet produkce
-function calculateProduction(entity: any): number {
-    if (entity.type === "sin") {
-        return entity.baseProduction * entity.level;
+    constructor(name: string, base: number, cost: number) {
+        this.name = name;
+        this.level = 0;
+        this.base = base;
+        this.cost = cost;
     }
 
-    if (entity.type === "hero") {
-        return entity.baseProduction * entity.level * 1.5;
+    // společná logika
+    getProduction(): number {
+        return this.level * this.base;
     }
 
-    return 0;
+    levelUp(): void {
+        this.level++;
+        this.cost = Math.floor(this.cost * 1.3);
+    }
 }
+
+// Třída pro hříchy (drahé upgrady)
+class Sin extends Upgrade {
+    constructor(name: string, base: number, cost: number) {
+        super(name, base, cost);
+    }
+}
+
+// Třída pro hrdiny (levné upgrady)
+class Hero extends Upgrade {
+    constructor(name: string, base: number, cost: number) {
+        super(name, base, cost);
+    }
+}
+

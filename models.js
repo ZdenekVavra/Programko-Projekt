@@ -1,35 +1,34 @@
 "use strict";
-// Vytvoření hříchu
-function createSin(id, name, baseProduction) {
-    return {
-        id,
-        name,
-        level: 1,
-        baseProduction,
-        type: "sin"
-    };
-}
-// Vytvoření hrdiny
-function createHero(id, name, baseProduction) {
-    return {
-        id,
-        name,
-        level: 1,
-        baseProduction,
-        type: "hero"
-    };
-}
-// Zvýšení levelu
-function levelUp(entity) {
-    entity.level++;
-}
-// Výpočet produkce
-function calculateProduction(entity) {
-    if (entity.type === "sin") {
-        return entity.baseProduction * entity.level;
+// Základní třída pro všechny upgrady
+class Upgrade {
+    name;
+    level;
+    base;
+    cost;
+    constructor(name, base, cost) {
+        this.name = name;
+        this.level = 0;
+        this.base = base;
+        this.cost = cost;
     }
-    if (entity.type === "hero") {
-        return entity.baseProduction * entity.level * 1.5;
+    // společná logika
+    getProduction() {
+        return this.level * this.base;
     }
-    return 0;
+    levelUp() {
+        this.level++;
+        this.cost = Math.floor(this.cost * 1.3);
+    }
+}
+// Třída pro hříchy (drahé upgrady)
+class Sin extends Upgrade {
+    constructor(name, base, cost) {
+        super(name, base, cost);
+    }
+}
+// Třída pro hrdiny (levné upgrady)
+class Hero extends Upgrade {
+    constructor(name, base, cost) {
+        super(name, base, cost);
+    }
 }
