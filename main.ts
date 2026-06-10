@@ -26,20 +26,24 @@ window.onload = () => {
         sinsDiv.innerHTML = "";
         sins.forEach((s, i) => {
             sinsDiv.innerHTML += `
-                <div>
-                    ${s.name} – lvl: ${s.level} – cena: ${s.cost}
-                    <button onclick="buySin(${i})">Koupit</button>
-                </div>
+            <div class="shop-item">
+            <img src="img/${s.name}.jpg" alt="${s.name}">
+             <div>${s.name} – lvl: ${s.level} – cena: ${s.cost}
+              <button onclick="buySin(${i})">Koupit</button>
+         </div>
+         </div> 
             `;
         });
 
-        heroesDiv.innerHTML = "";
+         heroesDiv.innerHTML = "";
         heroes.forEach((h, i) => {
             heroesDiv.innerHTML += `
-                <div>
-                    ${h.name} – lvl: ${h.level} – cena: ${h.cost}
-                    <button onclick="buyHero(${i})">Koupit</button>
-                </div>
+            <div class="shop-item">
+            <img src="img/${h.name}.jpg" alt="${h.name}">
+             <div>${h.name} – lvl: ${h.level} – cena: ${h.cost}
+              <button onclick="buyHero(${i})">Koupit</button>
+         </div>
+         </div> 
             `;
         });
     }

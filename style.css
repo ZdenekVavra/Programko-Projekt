@@ -1,20 +1,190 @@
+:root{
+    --bg:#0f1720;
+    --panel:#0f1a26;
+    --card:#0b1220;
+    --accent:#4f46e5;
+    --muted:#94a3b8;
+    --text:#e6eef8;
+    --radius:12px;
+    --shadow:0 6px 18px rgba(2,6,23,0.6);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+    height:100%;
+}
+#click {
+  margin: 0 auto;
+}
+
 body {
-    background: #111;
-    color: white;
-    font-family: Arial;
-    padding: 20px;
+    margin:0;
+    min-height: 100vh;
+    padding:32px 20px;
+    color:var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    line-height:1.45;
+  background-image: url('img/77.jpg');
+  background-size: cover;
+  background-position: center center; 
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5); /* průhledná černá jen pro obrázek */
+  background-blend-mode: darken;        /* smíchá barvu s obrázkem */
 }
 
+
+p{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+/* Headings */
+h1,h2,h3{margin:0 0 12px 0;
+        font-weight:600;
+        color:var(--text);
+        align-self:center;
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        align-items:center;
+        text-align:center;
+        color:white;
+}
+h2{font-size:1.4rem;
+    letter-spacing:0.2px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    align-items:center;
+    text-align:center;
+}
+
+
+/* Cards / sections */
+.card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:var(--radius);
+    padding:18px;
+    margin-bottom:16px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(0, 0, 0, 0.03);
+    
+}
+.shop-item img, .thumb{
+  width: 95pxpx;
+  height:95px;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 8px;
+  border-radius:6px;
+}
+
+/* Buttons */
 button {
-    padding: 10px;
-    margin: 5px 0;
-    cursor: pointer;
+  appearance: none;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 14px; /* choose the one you want */
+  border-radius: 10px; /* choose the one you want */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  box-shadow: 0 6px 12px rgba(79,70,229,0.15);
 }
 
-div {
-    margin-bottom: 10px;
+button:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(79,70,229,0.18)}
+button:active{transform:translateY(0)}
+
+/* Utility spacing */
+.row{display:flex;gap:12px;align-items:center}
+.muted{color:var(--muted);font-size:.95rem}
+
+/* Inputs */
+input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--text)}
+
+/* Images */
+img{max-width:100%;height:auto;border-radius:8px;display:block}
+
+/* Small layout tweaks for generic elements */
+div{margin-bottom:12px}
+
+div img{
+    width: 120px;
+     height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+@media (max-width:520px){
+    body{padding:18px 12px}
+    .app{padding:0}
 }
 
-h2 {
-    margin-top: 20px;
+/* --- Simple minimalist styles --- */
+
+/* Replace complex theming with a clean, readable default */
+:root{--bg:#f7f9fb;--text:#0b1220;--muted:#556070;--accent:#0366d6;--card:#ffffff}
+
+*{box-sizing:border-box}
+body{margin:0; 
+    padding:20px;
+    background-image:url('img/77.jpg');
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+    color:var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height:1.5;
+
 }
+.app{max-width:900px;margin:0 auto;text-align:center}
+
+h1,h2,h3{margin:0 0 10px 0;font-weight:600}
+
+.card{background:var(--card);border:1px solid #e6edf3;border-radius:8px;padding:14px;margin-bottom:12px;box-shadow:0 2px 6px rgba(11,18,32,0.04)}
+
+button:hover{opacity:.95}
+
+input,textarea,select{width:100%;padding:8px;border:1px solid #e1e8ef;border-radius:6px;color:var(--text);background:transparent}
+
+div{margin-bottom:10px}
+
+@media (max-width:520px){
+    body{padding:12px}
+}
+
+/* Shop lists: display items side-by-side */
+#sins, #heroes{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    justify-content:center;
+    margin-bottom:14px;
+}
+
+#sins > div, #heroes > div{
+    background:var(--card);
+    border:1px solid #124775;
+    padding:10px;
+    border-radius:8px;
+    min-width:180px;
+    max-width:280px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    align-items:center;
+    text-align:center;
+}
+
+
