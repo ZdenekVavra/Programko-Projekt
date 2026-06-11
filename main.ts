@@ -29,7 +29,8 @@ window.onload = () => {
             <div class="shop-item">
             <img src="img/${s.name}.jpg" alt="${s.name}">
              <div>${s.name} – lvl: ${s.level} – cena: ${s.cost}
-              <button onclick="buySin(${i})">Koupit</button>
+             <h3>Produkce: ${s.getProduction()}</h3>
+              <button id="koupit"  onclick="buySin(${i})">Koupit</button>
          </div>
          </div> 
             `;
@@ -41,7 +42,8 @@ window.onload = () => {
             <div class="shop-item">
             <img src="img/${h.name}.jpg" alt="${h.name}">
              <div>${h.name} – lvl: ${h.level} – cena: ${h.cost}
-              <button onclick="buyHero(${i})">Koupit</button>
+              <h3>Produkce: ${h.getProduction()}</h3>
+              <button id="koupit"  onclick="buyHero(${i})">Koupit</button>
          </div>
          </div> 
             `;

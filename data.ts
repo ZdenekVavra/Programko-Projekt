@@ -15,7 +15,7 @@ const heroesData = [
     { name: "Howzer",  base: 1, cost: 25 },
     { name: "Jericho",base: 2, cost: 35 },
     { name: "Zhivago", base: 2, cost: 40 },
-    { name: "Ardbeg",  base: 3, cost: 50 },
+    { name: "Elizabeth",  base: 3, cost: 50 },
     { name: "Hawk",   base: 3, cost: 60 },
     { name: "Elaine",  base: 4, cost: 80 }
 ];

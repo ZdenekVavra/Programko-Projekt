@@ -12,11 +12,6 @@ class Upgrade {
         this.cost = cost;
     }
 
-    // společná logika
-    getProduction(): number {
-        return this.level * this.base;
-    }
-
     levelUp(): void {
         this.level++;
         this.cost = Math.floor(this.cost * 1.3);
@@ -28,12 +23,18 @@ class Sin extends Upgrade {
     constructor(name: string, base: number, cost: number) {
         super(name, base, cost);
     }
+    getProduction(): number {
+        return this.level * this.base;
+    }
 }
 
 // Třída pro hrdiny (levné upgrady)
 class Hero extends Upgrade {
     constructor(name: string, base: number, cost: number) {
         super(name, base, cost);
+    }
+    getProduction(): number {
+        return this.level * this.base;
     }
 }
 
